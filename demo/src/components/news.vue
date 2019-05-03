@@ -9,7 +9,7 @@
       >
       </el-input>
       </div></el-col>
-      <el-col :span="2"><div><el-button type="primary" icon="el-icon-search" @click="get">搜索</el-button></div></el-col>
+      <el-col :span="2"><div><el-button type="primary" icon="el-icon-search">搜索</el-button></div></el-col>
     </el-row>
     <el-row >
       <div style="text-align: left">

@@ -9,7 +9,7 @@
       >
       </el-input>
       </div></el-col>
-      <el-col :span="2"><div><el-button type="primary" icon="el-icon-search" @click="get">搜索</el-button></div></el-col>
+      <el-col :span="2"><div><el-button type="primary" icon="el-icon-search" >搜索</el-button></div></el-col>
     </el-row>
     <el-row >
       <div style="text-align: left">
@@ -108,22 +108,34 @@
       return{
         input: '',
         tableData: [{
-          id: '1',
-          cultureName: '牡丹',
+          id:'1',
+          cultureName:'牡丹',
           type:'名植',
-          address: '洛阳',
+          address:'洛阳',
           description:'起源于',
           level:'市级',
           picture:'',
-          createTime: '2019-03-18',
-          updateTime: '2019-04-18',
+          createTime:'2019-03-18',
+          updateTime:'2019-04-18',
           createUser:'王小虎',
           updateUser:'Admin'
         }
         ]
       }
+    },
+    methods:{
+      get: function(){
+        this.$http.post('http://localhost:8080/culture/test').then(function (res) {
+          console.log(res)//返回很多数据，比如URL ，data，code
+          console.log(res.data)//返回json数据
+          console.log(res.data.message)//返回json中的对象信息
+        }).catch(function (err) {
+          console.log(err)
+          alert("error")
+        })
+      }
+      }
     }
-  }
 </script>
 <style>
   .el-row {

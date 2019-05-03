@@ -6,11 +6,23 @@ const path = require('path')
 
 module.exports = {
   dev: {
-
     // Paths
+    //静态资源文件夹
     assetsSubDirectory: 'static',
+   //发布路径
     assetsPublicPath: '/',
-    proxyTable: {},
+    //代理配置表，在这里可以配置特定的请求代理到对应的api接口
+    //例如将localhost：8080/api/xxx'代理到“www.example.com/api/xxx”
+    //使用方法：http://vuejs-templates.github.io/webpack/proxy.html
+    proxyTable: {
+      '/api': {
+        target: 'http://localhost:8080',//接口的域名
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api': ''
+        }
+      }
+    },
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
@@ -39,15 +51,7 @@ module.exports = {
     // set this to false - it *may* help
     // https://vue-loader.vuejs.org/en/options.html#cachebusting
     cacheBusting: true,
-    proxyTable:{
-      '/api':{
-        target:"http://localhost:8080",
-        changeOrign: true,
-        pathRewrite:{
-          '^/api': '/'
-        }
-      }
-    },
+
     cssSourceMap: true
   },
 

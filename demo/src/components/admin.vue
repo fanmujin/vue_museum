@@ -9,7 +9,7 @@
        >
       </el-input>
        </div></el-col>
-      <el-col :span="2"><div><el-button type="primary" icon="el-icon-search" @click="get">搜索</el-button></div></el-col>
+      <el-col :span="2"><div><el-button type="primary" icon="el-icon-search">搜索</el-button></div></el-col>
     </el-row>
 
     <el-table
@@ -70,20 +70,11 @@
 </div>
 </template>
 <script>
-  import axios from 'axios'
   export default {
     methods: {
       deleteRow(index, rows) {
         rows.splice(index, 1);
-      },
-       get(){
-         axios.get('b.txt')
-           .then(function (res) {
-             alert("successMessage");
-         }).catch(function (err) {
-           alert("error");
-         })
-       }
+        }
       },
     data() {
       return {

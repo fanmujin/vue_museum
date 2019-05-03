@@ -10,15 +10,20 @@ import display from "../components/diaplay"
 import digital from "../components/digital"
 import music from "../components/music"
 import report from "../components/introduction"
-
+import user from "../components/user"
+import mains from "../components/main"
+import circular from "../until/Circul"
 Vue.use(Router)
 
 export default new Router({
   routes: [
     {
+      path:'/circle',
+      component:circular
+    },
+    {
       path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
+      component: mains
     },
     {
       path:'/Admin',
@@ -54,7 +59,13 @@ export default new Router({
     {
       path:'/report',
       component:report
+    },
+    {
+      path:'/user',
+      component:user
     }
   ],
-  mode:'history'//处理路由不显示
+ // 处理路由不显示历史
+  mode: 'history'
+
 })

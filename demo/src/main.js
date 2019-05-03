@@ -5,14 +5,13 @@ import App from './App'
 import VueRouter from  'vue-router'
 import router from './router'
 import ElementUI from 'element-ui'
+import VueResource from 'vue-resource'
 import 'element-ui/lib/theme-chalk/index.css'
-//import VueResource from 'vue-resource'
-//import axios from 'axios'
+
 Vue.use(ElementUI);
 Vue.use(VueRouter);
-//Vue.use(VueResource);
-//Vue.prototype.$http = axios;
-//Vue.prototype.baseURL = process.env.API_ROOT;
+Vue.use(VueResource);
+
 
 /* eslint-disable no-new */
 new Vue({

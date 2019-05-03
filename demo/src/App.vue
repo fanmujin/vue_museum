@@ -3,20 +3,26 @@
   <div id="app">
     <el-container>
       <el-header style="text-align: right; font-size: 12px">
-        <el-dropdown>
-          <i class="el-icon-setting" style="margin-right: 15px;color: #e9e9eb"></i>
-          <el-dropdown-menu slot="dropdown">
-            <el-dropdown-item>个人中心</el-dropdown-item>
-            <el-dropdown-item>登录</el-dropdown-item>
-            <el-dropdown-item>退出</el-dropdown-item>
-          </el-dropdown-menu>
-        </el-dropdown>
-        <span>Admin</span>
+        <el-row>
+          <el-col :span="12"><div style="text-align: left">
+            <span style="font-size: 28px;color: #b4bccc; font-family: 华文行楷" >中原线上博物馆系统</span>
+          </div></el-col>
+          <el-col :span="12"><div > <el-dropdown>
+            <i class="el-icon-setting" style="margin-right: 15px;color: #e9e9eb"></i>
+            <el-dropdown-menu slot="dropdown">
+              <el-dropdown-item>个人中心</el-dropdown-item>
+              <el-dropdown-item>登录</el-dropdown-item>
+              <el-dropdown-item>退出</el-dropdown-item>
+            </el-dropdown-menu>
+          </el-dropdown>
+            <span>Admin</span></div></el-col>
+        </el-row>
+
       </el-header>
-      <el-container style="height: 500px; border: 1px solid #eee">
-        <el-aside width="200px" style="background-color: rgb(238, 241, 246)">
+      <el-container style="height: 600px; border: 1px solid #eee">
+        <el-aside width="200px" style="background-color: #545c64">
           <el-menu
-            default-active="/Admin"
+            default-active="/"
             class="el-menu-vertical-demo"
             @open="handleOpen"
             @close="handleClose"
@@ -24,6 +30,10 @@
             text-color="#fff"
             active-text-color="#ffd04b"
             router="">
+            <el-menu-item index="/">
+              <template slot="title">
+                <span>首页</span></template>
+            </el-menu-item>
             <el-menu-item index="/Admin">
               <template slot="title">
                 <i class="el-icon-service"></i>
@@ -36,7 +46,8 @@
               </template>
               <el-menu-item index="/cultureType">名俗类别</el-menu-item>
               <el-menu-item index="/culture">名俗详情</el-menu-item>
-              <el-menu-item index="/addres">名俗地理</el-menu-item>
+              <el-menu-item index="/addres">地方记录</el-menu-item>
+              <el-menu-item index="/circle">地理分布</el-menu-item>
             </el-submenu>
             <el-submenu index="3">
               <template slot="title">
@@ -58,7 +69,11 @@
                 <i class="el-icon-document"></i>
                 <span>学术报告</span></template>
             </el-menu-item>
-
+            <el-menu-item index="/user">
+              <template slot="title">
+                <i class="el-icon-document"></i>
+                <span>用户信息</span></template>
+            </el-menu-item>
             <el-submenu index="6">
               <template slot="title">
                 <i class="el-icon-setting"></i>
@@ -66,19 +81,10 @@
               </template>
               <el-menu-item index="1-1">相关网站</el-menu-item>
               <el-menu-item index="1-2">联系信息</el-menu-item>
-              <el-menu-item index="1-3">版本管理</el-menu-item>
             </el-submenu>
-            <el-menu-item index="7">
-              <template slot="title">
-                <i class="el-icon-document"></i>
-                <span>学术报告</span></template>
-            </el-menu-item>
 
-            <el-menu-item index="8">
-              <template slot="title">
-                <i class="el-icon-document"></i>
-                <span>学术报告</span></template>
-            </el-menu-item>
+
+
           </el-menu>
         </el-aside>
         <el-container>
